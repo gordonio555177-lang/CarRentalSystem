@@ -31,15 +31,14 @@ use Illuminate\Support\Facades\Route;
 
 // ==================== PUBLIC ROUTES ====================
 Route::get('/', function () {
-    return redirect('login');
-})->name('login');
+    return redirect()->route('login');
+});
 
 // ==================== BREEZE AUTH ROUTES (Keep these) ====================
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->name('login');
     
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->name('login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
 // Registration routes (Breeze default)
 Route::get('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])
