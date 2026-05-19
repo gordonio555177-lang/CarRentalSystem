@@ -138,9 +138,14 @@
     <div class="col-sm-6 col-lg-4">
         <div class="card car-card h-100">
 
-            {{-- Icon / Image area --}}
-            <div class="car-icon-wrap">
-                <i class="fas fa-car"></i>
+            {{-- Image / Icon area --}}
+            <div class="car-icon-wrap" style="position:relative; overflow:hidden;">
+                @if($car->image_url)
+                    <img src="{{ $car->image_url }}" alt="{{ $car->brand }} {{ $car->model }}"
+                         style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;">
+                @else
+                    <i class="fas fa-car"></i>
+                @endif
                 <span class="status-pill bg-{{ $car->status == 'available' ? 'success' : 'danger' }} text-white">
                     {{ $car->status == 'available' ? 'Available' : ucfirst($car->status) }}
                 </span>
@@ -148,7 +153,11 @@
 
             <div class="card-body d-flex flex-column">
                 <div class="car-title">{{ $car->brand }} {{ $car->model }}</div>
-                <div class="car-meta">{{ $car->year }} &bull; {{ $car->license_plate }}</div>
+                <div class="car-meta">{{ $car->year }} &bull; {{ $car->license_plate }}
+                    @if($car->category)
+                        &bull; <span class="badge bg-{{ $car->category == 'luxury' ? 'warning text-dark' : ($car->category == 'suv' ? 'info text-dark' : 'secondary') }}" style="font-size:10px;">{{ ucfirst($car->category) }}</span>
+                    @endif
+                </div>
 
                 <div class="info-row">
                     <span class="info-label">Daily Rate</span>

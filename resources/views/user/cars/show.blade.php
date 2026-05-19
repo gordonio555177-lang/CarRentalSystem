@@ -7,13 +7,31 @@
 <div class="row">
     {{-- Car Image / Icon --}}
     <div class="col-md-5 mb-4">
-        <div class="card h-100">
-            <div class="card-body d-flex flex-column align-items-center justify-content-center py-5">
-                <i class="fas fa-car fa-8x text-secondary mb-3"></i>
-                <span class="badge bg-{{ $car->status == 'available' ? 'success' : 'danger' }} fs-6">
-                    {{ ucfirst($car->status) }}
-                </span>
-            </div>
+        <div class="card h-100" style="border:none; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.1);">
+            @if($car->image_url)
+                <img src="{{ $car->image_url }}" alt="{{ $car->brand }} {{ $car->model }}"
+                     style="width:100%; height:280px; object-fit:cover;">
+                <div class="p-3 d-flex align-items-center gap-2 flex-wrap">
+                    <span class="badge bg-{{ $car->status == 'available' ? 'success' : 'danger' }} fs-6">
+                        {{ ucfirst($car->status) }}
+                    </span>
+                    @if($car->category)
+                        <span class="badge bg-{{ $car->category == 'luxury' ? 'warning text-dark' : ($car->category == 'suv' ? 'info text-dark' : 'secondary') }}">
+                            {{ ucfirst($car->category) }}
+                        </span>
+                    @endif
+                    @if($car->color)
+                        <span class="badge bg-light text-dark border">{{ $car->color }}</span>
+                    @endif
+                </div>
+            @else
+                <div class="card-body d-flex flex-column align-items-center justify-content-center py-5">
+                    <i class="fas fa-car fa-8x text-secondary mb-3"></i>
+                    <span class="badge bg-{{ $car->status == 'available' ? 'success' : 'danger' }} fs-6">
+                        {{ ucfirst($car->status) }}
+                    </span>
+                </div>
+            @endif
         </div>
     </div>
 
@@ -109,7 +127,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-book w-100">
-                        <i class="fas fa-check-circle me-1"></i> Confirm Booking
+                        <i class="fas fa-arrow-right me-1"></i> Proceed to Payment
                     </button>
                 </form>
 

@@ -12,12 +12,13 @@ class Payment extends Model
     protected $primaryKey = 'payment_id';
     
     protected $fillable = [
-        'rental_id', 
-        'amount', 
-        'payment_date', 
-        'method', 
-        'transaction_id', 
-        'status'
+        'rental_id',
+        'amount',
+        'payment_date',
+        'method',
+        'transaction_id',
+        'status',
+        'notes',
     ];
 
     protected $casts = [

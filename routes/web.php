@@ -134,6 +134,7 @@ Route::prefix('user')->name('user.')->middleware(['auth'])->group(function () {
     Route::get('/cars', [UserCarController::class, 'index'])->name('cars.index');
     Route::get('/cars/{car}', [UserCarController::class, 'show'])->name('cars.show');
     Route::post('/cars/{car}/book', [UserCarController::class, 'book'])->name('cars.book');
+    Route::post('/cars/{car}/checkout', [UserCarController::class, 'confirmCheckout'])->name('cars.checkout.confirm');
     
     // Rentals History
     Route::get('/rentals', [UserRentalController::class, 'index'])->name('rentals.index');

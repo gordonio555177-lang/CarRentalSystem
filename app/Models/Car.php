@@ -13,14 +13,21 @@ class Car extends Model
     protected $primaryKey = 'car_id';
     
     protected $fillable = [
-        'model', 
-        'brand', 
-        'year', 
-        'license_plate', 
-        'daily_rate', 
-        'status', 
-        'mileage', 
-        'branch_id'
+        'model',
+        'brand',
+        'year',
+        'license_plate',
+        'daily_rate',
+        'status',
+        'mileage',
+        'branch_id',
+        'image_url',
+        'category',
+        'color',
+        'seats',
+        'transmission',
+        'fuel_type',
+        'description',
     ];
 
     protected $casts = [
