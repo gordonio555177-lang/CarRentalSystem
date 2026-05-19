@@ -31,8 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 // ==================== PUBLIC ROUTES ====================
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return redirect('login');
+})->name('login');
 
 // ==================== BREEZE AUTH ROUTES (Keep these) ====================
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
