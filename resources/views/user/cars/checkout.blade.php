@@ -20,13 +20,13 @@
     }
     .summary-card .car-banner-placeholder {
         height: 220px;
-        background: linear-gradient(135deg,#667eea,#764ba2);
+        background: linear-gradient(135deg,#865D36,#93785B);
         display: flex; align-items: center; justify-content: center;
     }
     .summary-card .car-banner-placeholder i { font-size: 5rem; color: rgba(255,255,255,.6); }
 
     .line-item { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.9rem; }
-    .line-item.total { font-size: 1.1rem; font-weight: 800; color: #667eea; border-top: 2px solid #f0f0f0; padding-top: 14px; margin-top: 6px; }
+    .line-item.total { font-size: 1.1rem; font-weight: 800; color: #865D36; border-top: 2px solid #f0f0f0; padding-top: 14px; margin-top: 6px; }
     .line-item .label { color: #666; }
     .line-item .value { font-weight: 600; color: #222; }
 
@@ -37,7 +37,7 @@
         box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
     .payment-card .card-header {
-        background: linear-gradient(135deg,#667eea,#764ba2);
+        background: linear-gradient(135deg,#865D36,#93785B);
         color: #fff;
         border-radius: 18px 18px 0 0 !important;
         padding: 1.25rem 1.5rem;
@@ -56,9 +56,9 @@
     }
     .method-label i { font-size: 1.5rem; color: #9ca3af; transition: color .2s; }
     .method-option:checked + .method-label {
-        border-color: #667eea; background: #f0f0ff; color: #667eea;
+        border-color: #865D36; background: #f5ede0; color: #865D36;
     }
-    .method-option:checked + .method-label i { color: #667eea; }
+    .method-option:checked + .method-label i { color: #865D36; }
 
     /* card details */
     .card-details { display: none; }
@@ -71,7 +71,7 @@
         transition: border-color .2s, box-shadow .2s;
     }
     .form-control:focus, .form-select:focus {
-        border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,.12);
+        border-color: #865D36; box-shadow: 0 0 0 3px rgba(134,93,54,.15);
     }
 
     /* secure badge */
@@ -85,7 +85,7 @@
 
     /* submit */
     .btn-pay {
-        background: linear-gradient(135deg,#667eea,#764ba2);
+        background: linear-gradient(135deg,#865D36,#93785B);
         color: #fff; border: none; border-radius: 12px;
         padding: 0.9rem; font-size: 1rem; font-weight: 700;
         width: 100%; transition: transform .15s, box-shadow .2s;
@@ -102,7 +102,7 @@
         font-size: 0.75rem; font-weight: 700;
     }
     .step.done .num { background: #10b981; color: #fff; }
-    .step.active .num { background: #667eea; color: #fff; }
+    .step.active .num { background: #865D36; color: #fff; }
     .step.pending .num { background: #e2e8f0; color: #9ca3af; }
     .step.done span, .step.active span { color: #222; }
     .step.pending span { color: #9ca3af; }

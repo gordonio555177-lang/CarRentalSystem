@@ -10,16 +10,17 @@
     .car-card {
         border: none;
         border-radius: 16px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 16px rgba(62,54,46,.09);
         transition: transform .25s, box-shadow .25s;
         overflow: hidden;
+        background: #fff;
     }
     .car-card:hover {
         transform: translateY(-6px);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+        box-shadow: 0 12px 32px rgba(62,54,46,.16);
     }
     .car-icon-wrap {
-        background: linear-gradient(135deg, #f0f2ff 0%, #e8ecff 100%);
+        background: linear-gradient(135deg, #f5ede0 0%, #eddcc8 100%);
         height: 160px;
         display: flex;
         align-items: center;
@@ -28,7 +29,7 @@
     }
     .car-icon-wrap i {
         font-size: 5rem;
-        color: #667eea;
+        color: #AC8968;
         opacity: .75;
     }
     .status-pill {
@@ -49,11 +50,11 @@
         font-size: 18px;
         font-weight: 700;
         margin-bottom: 2px;
-        color: #1a1a2e;
+        color: #3E362E;
     }
     .car-card .car-meta {
         font-size: 13px;
-        color: #888;
+        color: #93785B;
         margin-bottom: 14px;
     }
     .car-card .info-row {
@@ -61,7 +62,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 0;
-        border-top: 1px solid #f0f0f0;
+        border-top: 1px solid #f5ede0;
     }
     .car-card .info-row:first-of-type {
         border-top: none;
@@ -69,22 +70,22 @@
     }
     .car-card .info-label {
         font-size: 12px;
-        color: #aaa;
+        color: #A69080;
         text-transform: uppercase;
         letter-spacing: .4px;
     }
     .car-card .info-value {
         font-size: 14px;
         font-weight: 600;
-        color: #333;
+        color: #3E362E;
     }
     .car-card .daily-rate {
         font-size: 22px;
         font-weight: 800;
-        color: #667eea;
+        color: #865D36;
     }
     .car-card .btn-view {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #865D36 0%, #93785B 100%);
         color: #fff;
         border: none;
         border-radius: 10px;
@@ -93,9 +94,34 @@
         font-size: 14px;
         width: 100%;
         margin-top: 16px;
-        transition: opacity .2s;
+        transition: opacity .2s, transform .15s;
+        box-shadow: 0 4px 12px rgba(134,93,54,.3);
     }
-    .car-card .btn-view:hover { opacity: .88; color: #fff; }
+    .car-card .btn-view:hover { opacity: .9; color: #fff; transform: translateY(-1px); }
+
+    /* Page header */
+    .browse-header {
+        background: linear-gradient(135deg, #3E362E 0%, #865D36 100%);
+        border-radius: 18px;
+        padding: 1.5rem 2rem;
+        color: #fff;
+        margin-bottom: 1.75rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 6px 24px rgba(62,54,46,.3);
+    }
+    .browse-header::after {
+        content: '\f1b9';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 2rem; top: 50%;
+        transform: translateY(-50%);
+        font-size: 5rem;
+        opacity: .08;
+    }
+    .browse-header h4 { font-weight: 800; margin: 0 0 .25rem; }
+    .browse-header p  { margin: 0; opacity: .75; font-size: .875rem; }
 
     /* Results header */
     .results-header {
@@ -106,25 +132,40 @@
     }
     .results-header h5 {
         font-weight: 700;
-        color: #1a1a2e;
+        color: #3E362E;
         margin: 0;
     }
     .results-header .results-count {
         font-size: 13px;
-        color: #888;
+        color: #93785B;
+        background: #f5ede0;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-weight: 600;
     }
 
     /* Empty state */
     .empty-state {
         text-align: center;
         padding: 60px 20px;
-        color: #aaa;
+        color: #A69080;
     }
-    .empty-state i { font-size: 4rem; margin-bottom: 16px; color: #d0d0e0; }
-    .empty-state h5 { color: #555; font-weight: 700; }
+    .empty-state i { font-size: 4rem; margin-bottom: 16px; color: #eddcc8; }
+    .empty-state h5 { color: #93785B; font-weight: 700; }
+
+    /* Category badge overrides */
+    .badge-luxury  { background: #f5ede0; color: #865D36; }
+    .badge-suv     { background: #ede8e0; color: #93785B; }
+    .badge-std     { background: #f0ebe4; color: #A69080; }
 </style>
 
 
+
+{{-- Browse Header --}}
+<div class="browse-header">
+    <h4><i class="fas fa-car me-2"></i>Browse Available Cars</h4>
+    <p>Choose from our premium fleet and book your next ride</p>
+</div>
 
 {{-- Results Header --}}
 <div class="results-header">

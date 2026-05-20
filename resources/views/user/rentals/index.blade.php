@@ -21,19 +21,19 @@
     .filter-tab {
         padding: .45rem 1rem; border-radius: 20px;
         font-size: .8rem; font-weight: 600;
-        border: 1.5px solid #e2e8f0;
-        background: #fff; color: #64748b;
+        border: 1.5px solid #f0e8dc;
+        background: #fff; color: #93785B;
         cursor: pointer; text-decoration: none;
         transition: all .2s;
     }
     .filter-tab:hover, .filter-tab.active {
-        background: #667eea; border-color: #667eea; color: #fff;
+        background: #865D36; border-color: #865D36; color: #fff;
     }
 
     /* ── Rental Cards ── */
     .rental-card {
         background: #fff;
-        border: 1.5px solid #f1f5f9;
+        border: 1.5px solid #f0e8dc;
         border-radius: 18px;
         padding: 1.25rem 1.5rem;
         margin-bottom: 1rem;
@@ -42,8 +42,8 @@
         overflow: hidden;
     }
     .rental-card:hover {
-        box-shadow: 0 8px 28px rgba(0,0,0,.08);
-        border-color: #e0e7ff;
+        box-shadow: 0 8px 28px rgba(62,54,46,.1);
+        border-color: #eddcc8;
         transform: translateY(-2px);
     }
     .rental-card::before {
@@ -97,8 +97,8 @@
         border-bottom: 1px solid #f8fafc;
         margin-bottom: 1rem;
     }
-    .info-item .info-label { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #94a3b8; margin-bottom: 3px; }
-    .info-item .info-value { font-size: .85rem; font-weight: 600; color: #334155; }
+    .info-item .info-label { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #A69080; margin-bottom: 3px; }
+    .info-item .info-value { font-size: .85rem; font-weight: 600; color: #3E362E; }
 
     /* ── Status Badges ── */
     .status-pill {
@@ -125,8 +125,8 @@
         text-decoration: none; border: none; cursor: pointer;
         transition: all .15s;
     }
-    .btn-action-view   { background: #eff6ff; color: #2563eb; }
-    .btn-action-view:hover   { background: #dbeafe; color: #1d4ed8; }
+    .btn-action-view   { background: #f5ede0; color: #865D36; }
+    .btn-action-view:hover   { background: #eddcc8; color: #6b4a28; }
     .btn-action-cancel { background: #fef2f2; color: #dc2626; }
     .btn-action-cancel:hover { background: #fee2e2; color: #b91c1c; }
 
@@ -134,15 +134,15 @@
     .empty-wrap {
         text-align: center; padding: 4rem 2rem;
         background: #fff; border-radius: 18px;
-        border: 1.5px dashed #e2e8f0;
+        border: 1.5px dashed #f0e8dc;
     }
-    .empty-wrap .empty-icon { font-size: 4rem; color: #e2e8f0; margin-bottom: 1rem; }
-    .empty-wrap h5 { font-weight: 700; color: #64748b; }
-    .empty-wrap p  { color: #94a3b8; font-size: .875rem; }
+    .empty-wrap .empty-icon { font-size: 4rem; color: #eddcc8; margin-bottom: 1rem; }
+    .empty-wrap h5 { font-weight: 700; color: #93785B; }
+    .empty-wrap p  { color: #A69080; font-size: .875rem; }
 
     /* ── Pagination ── */
-    .pagination .page-link { border-radius: 8px !important; margin: 0 2px; border: 1.5px solid #e2e8f0; color: #667eea; }
-    .pagination .page-item.active .page-link { background: #667eea; border-color: #667eea; }
+    .pagination .page-link { border-radius: 8px !important; margin: 0 2px; border: 1.5px solid #f0e8dc; color: #865D36; }
+    .pagination .page-item.active .page-link { background: #865D36; border-color: #865D36; }
 
     @media (max-width: 576px) {
         .info-grid { grid-template-columns: repeat(2,1fr); }
@@ -153,11 +153,11 @@
 {{-- Page Header --}}
 <div class="page-header">
     <div>
-        <h4><i class="fas fa-calendar-check me-2" style="color:#667eea;"></i>My Rentals</h4>
+        <h4><i class="fas fa-calendar-check me-2" style="color:#865D36;"></i>My Rentals</h4>
         <p>Track and manage all your rental bookings</p>
     </div>
     <a href="{{ route('user.cars.index') }}"
-       style="display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border-radius:12px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.875rem;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(102,126,234,.35);">
+       style="display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border-radius:12px;background:linear-gradient(135deg,#865D36,#93785B);color:#fff;font-size:.875rem;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(134,93,54,.35);">
         <i class="fas fa-plus"></i> New Booking
     </a>
 </div>
@@ -260,7 +260,7 @@
     <h5>No rentals found</h5>
     <p>You haven't made any bookings yet. Browse our fleet and start your journey!</p>
     <a href="{{ route('user.cars.index') }}"
-       style="display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.875rem;font-weight:600;text-decoration:none;margin-top:.5rem;">
+       style="display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,#865D36,#93785B);color:#fff;font-size:.875rem;font-weight:600;text-decoration:none;margin-top:.5rem;">
         <i class="fas fa-car"></i> Browse Cars
     </a>
 </div>

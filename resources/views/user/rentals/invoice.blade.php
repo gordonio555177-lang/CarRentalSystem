@@ -20,7 +20,7 @@
 
         /* Header */
         .invoice-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #865D36 0%, #93785B 100%);
             color: #fff;
             padding: 36px 40px 28px;
         }
@@ -47,7 +47,7 @@
         /* Table */
         .invoice-table { width: 100%; border-collapse: collapse; margin-top: 28px; }
         .invoice-table thead tr {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #865D36 0%, #93785B 100%);
             color: #fff;
         }
         .invoice-table thead th { padding: 12px 16px; font-size: 13px; font-weight: 600; }
@@ -67,7 +67,7 @@
         .totals-row.grand-total {
             font-size: 18px;
             font-weight: 800;
-            color: #667eea;
+            color: #865D36;
             border-bottom: none;
             padding-top: 14px;
         }

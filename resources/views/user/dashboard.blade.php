@@ -6,14 +6,14 @@
 <style>
     /* ── Welcome Banner ── */
     .welcome-banner {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #3E362E 0%, #865D36 60%, #93785B 100%);
         border-radius: 20px;
         padding: 2rem 2.5rem;
         color: #fff;
         position: relative;
         overflow: hidden;
         margin-bottom: 1.75rem;
-        box-shadow: 0 8px 32px rgba(102,126,234,.35);
+        box-shadow: 0 8px 32px rgba(62,54,46,.35);
     }
     .welcome-banner::before {
         content: '';
@@ -21,7 +21,7 @@
         right: -60px; top: -60px;
         width: 260px; height: 260px;
         border-radius: 50%;
-        background: rgba(255,255,255,.07);
+        background: rgba(255,255,255,.06);
     }
     .welcome-banner::after {
         content: '';
@@ -29,14 +29,14 @@
         right: 60px; bottom: -80px;
         width: 180px; height: 180px;
         border-radius: 50%;
-        background: rgba(255,255,255,.05);
+        background: rgba(255,255,255,.04);
     }
     .welcome-banner h3 { font-weight: 800; font-size: 1.6rem; margin-bottom: .3rem; }
-    .welcome-banner p  { opacity: .85; font-size: .95rem; margin: 0; }
+    .welcome-banner p  { opacity: .8; font-size: .95rem; margin: 0; }
     .welcome-banner .car-icon {
         position: absolute; right: 2.5rem; top: 50%;
         transform: translateY(-50%);
-        font-size: 5rem; opacity: .12;
+        font-size: 5rem; opacity: .1;
     }
 
     /* ── Stat Cards ── */
@@ -65,58 +65,59 @@
         font-size: 6rem; opacity: .06;
     }
 
-    .stat-blue   { background: linear-gradient(135deg,#eff6ff,#dbeafe); color: #1d4ed8; }
-    .stat-green  { background: linear-gradient(135deg,#f0fdf4,#dcfce7); color: #15803d; }
-    .stat-amber  { background: linear-gradient(135deg,#fffbeb,#fef3c7); color: #b45309; }
-    .stat-purple { background: linear-gradient(135deg,#faf5ff,#ede9fe); color: #7c3aed; }
+    .stat-blue   { background: linear-gradient(135deg,#f5efe6,#ede0ce); color: #3E362E; }
+    .stat-green  { background: linear-gradient(135deg,#f5efe6,#e8d9c4); color: #3E362E; }
+    .stat-amber  { background: linear-gradient(135deg,#fdf6ee,#f5e6d0); color: #3E362E; }
+    .stat-purple { background: linear-gradient(135deg,#f5efe6,#ecdcc8); color: #3E362E; }
 
-    .stat-blue   .stat-icon { background: #dbeafe; color: #2563eb; }
-    .stat-green  .stat-icon { background: #dcfce7; color: #16a34a; }
-    .stat-amber  .stat-icon { background: #fef3c7; color: #d97706; }
-    .stat-purple .stat-icon { background: #ede9fe; color: #7c3aed; }
+    .stat-blue   .stat-icon { background: rgba(134,93,54,.15);  color: #865D36; }
+    .stat-green  .stat-icon { background: rgba(147,120,91,.15); color: #93785B; }
+    .stat-amber  .stat-icon { background: rgba(172,137,104,.2); color: #AC8968; }
+    .stat-purple .stat-icon { background: rgba(166,144,128,.2); color: #7a5c3e; }
 
     /* ── Section Cards ── */
     .section-card {
         border: none;
         border-radius: 18px;
-        box-shadow: 0 4px 20px rgba(0,0,0,.06);
+        box-shadow: 0 4px 20px rgba(62,54,46,.08);
         overflow: hidden;
+        background: #fff;
     }
     .section-card .card-header {
         background: #fff;
-        border-bottom: 1px solid #f1f5f9;
+        border-bottom: 1px solid #f0e8dc;
         padding: 1.25rem 1.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
     .section-card .card-header h5 {
-        font-weight: 700; font-size: 1rem; margin: 0; color: #0f172a;
+        font-weight: 700; font-size: 1rem; margin: 0; color: #3E362E;
     }
     .section-card .card-body { padding: 0; }
 
     /* ── Rental Table ── */
     .rental-table { width: 100%; border-collapse: collapse; }
     .rental-table thead th {
-        background: #f8fafc;
+        background: #faf6f1;
         padding: .75rem 1.25rem;
         font-size: .75rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: .06em;
-        color: #64748b;
-        border-bottom: 1px solid #f1f5f9;
+        color: #93785B;
+        border-bottom: 1px solid #f0e8dc;
         white-space: nowrap;
     }
     .rental-table tbody td {
         padding: 1rem 1.25rem;
         font-size: .875rem;
-        color: #334155;
-        border-bottom: 1px solid #f8fafc;
+        color: #3E362E;
+        border-bottom: 1px solid #faf6f1;
         vertical-align: middle;
     }
     .rental-table tbody tr:last-child td { border-bottom: none; }
-    .rental-table tbody tr:hover td { background: #f8fafc; }
+    .rental-table tbody tr:hover td { background: #faf6f1; }
 
     .car-thumb {
         width: 44px; height: 44px;
@@ -150,9 +151,9 @@
         display: flex; align-items: center; gap: .75rem;
         padding: .9rem 1.25rem;
         border-radius: 12px;
-        border: 1.5px solid #e2e8f0;
+        border: 1.5px solid #f0e8dc;
         background: #fff;
-        color: #334155;
+        color: #3E362E;
         font-size: .875rem;
         font-weight: 600;
         text-decoration: none;
@@ -167,12 +168,12 @@
         font-size: .95rem;
         flex-shrink: 0;
     }
-    .action-btn:hover { border-color: #667eea; color: #667eea; transform: translateX(3px); box-shadow: 0 4px 12px rgba(102,126,234,.15); }
-    .action-btn:hover .action-icon { background: #667eea !important; color: #fff !important; }
+    .action-btn:hover { border-color: #865D36; color: #865D36; transform: translateX(3px); box-shadow: 0 4px 12px rgba(134,93,54,.15); }
+    .action-btn:hover .action-icon { background: #865D36 !important; color: #fff !important; }
 
-    .action-btn-primary .action-icon { background: #eff6ff; color: #2563eb; }
-    .action-btn-teal    .action-icon { background: #f0fdfa; color: #0d9488; }
-    .action-btn-gray    .action-icon { background: #f8fafc; color: #64748b; }
+    .action-btn-primary .action-icon { background: #f5ede0; color: #865D36; }
+    .action-btn-teal    .action-icon { background: #f0ebe4; color: #93785B; }
+    .action-btn-gray    .action-icon { background: #f5f0ea; color: #A69080; }
 
     /* ── Feedback Alert ── */
     .feedback-alert {
@@ -195,12 +196,12 @@
     .btn-view-detail {
         display: inline-flex; align-items: center; gap: 5px;
         padding: 5px 14px; border-radius: 8px;
-        background: #eff6ff; color: #2563eb;
+        background: #f5ede0; color: #865D36;
         font-size: .78rem; font-weight: 600;
         text-decoration: none; border: none;
         transition: background .2s;
     }
-    .btn-view-detail:hover { background: #dbeafe; color: #1d4ed8; }
+    .btn-view-detail:hover { background: #eddcc8; color: #6b4a28; }
 </style>
 
 {{-- Welcome Banner --}}
@@ -254,7 +255,7 @@
         <div class="card section-card">
             <div class="card-header">
                 <h5><i class="fas fa-clock me-2 text-primary" style="font-size:.9rem;"></i>Recent Rentals</h5>
-                <a href="{{ route('user.rentals.index') }}" style="font-size:.82rem; color:#667eea; font-weight:600; text-decoration:none;">
+                <a href="{{ route('user.rentals.index') }}" style="font-size:.82rem; color:#865D36; font-weight:600; text-decoration:none;">
                     View All <i class="fas fa-arrow-right ms-1"></i>
                 </a>
             </div>
@@ -322,7 +323,7 @@
                     <div class="empty-icon"><i class="fas fa-car-side"></i></div>
                     <h6>No rentals yet</h6>
                     <p>Start your first rental journey with us!</p>
-                    <a href="{{ route('user.cars.index') }}" class="btn btn-sm" style="background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:10px;padding:.5rem 1.25rem;font-weight:600;">
+                    <a href="{{ route('user.cars.index') }}" class="btn btn-sm" style="background:linear-gradient(135deg,#865D36,#93785B);color:#fff;border-radius:10px;padding:.5rem 1.25rem;font-weight:600;">
                         Browse Cars
                     </a>
                 </div>
