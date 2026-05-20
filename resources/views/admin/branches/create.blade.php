@@ -46,7 +46,7 @@
                         @foreach($managers as $manager)
                             <option value="{{ $manager->staff_id }}"
                                 {{ old('manager_staff_id') == $manager->staff_id ? 'selected' : '' }}>
-                                {{ $manager->first_name }} {{ $manager->last_name }}
+                                {{ $manager->first_name }} {{ $manager->last_name }} ({{ ucfirst($manager->role) }})
                             </option>
                         @endforeach
                     </select>

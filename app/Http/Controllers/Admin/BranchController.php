@@ -17,7 +17,8 @@ class BranchController extends Controller
     
     public function create()
     {
-        $managers = Staff::where('role', 'manager')->get();
+        // Show all staff so any can be assigned as branch manager
+        $managers = Staff::orderBy('first_name')->get();
         return view('admin.branches.create', compact('managers'));
     }
     
@@ -37,7 +38,8 @@ class BranchController extends Controller
     
     public function edit(Branch $branch)
     {
-        $managers = Staff::where('role', 'manager')->get();
+        // Show all staff so any can be assigned as branch manager
+        $managers = Staff::orderBy('first_name')->get();
         return view('admin.branches.edit', compact('branch', 'managers'));
     }
     
