@@ -42,7 +42,7 @@
                     @foreach($rentals as $rental)
                     <tr class="{{ $rental->status == 'pending' ? 'table-warning' : '' }}">
                         <td>#{{ $rental->rental_id }}</td>
-                        <td>{{ $rental->customer->name ?? ($rental->customer->customer->full_name ?? 'N/A') }}</td>
+                        <td>{{ $rental->customer->customer->full_name ?? $rental->customer->name ?? 'N/A' }}</td>
                         <td>{{ $rental->car->brand ?? '' }} {{ $rental->car->model ?? '' }}</td>
                         <td>{{ $rental->start_date->format('M d, Y') }}</td>
                         <td>{{ $rental->end_date->format('M d, Y') }}</td>

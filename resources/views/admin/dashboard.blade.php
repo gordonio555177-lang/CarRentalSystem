@@ -98,7 +98,7 @@
                         <tbody>
                             @forelse($recentRentals ?? [] as $rental)
                             <tr>
-                                <td>{{ $rental->customer->name ?? 'N/A' }}</td>
+                                <td>{{ $rental->customer->customer->full_name ?? $rental->customer->name ?? 'N/A' }}</td>
                                 <td>{{ $rental->car->brand ?? '' }} {{ $rental->car->model ?? '' }}</td>
                                 <td>{{ $rental->start_date ? $rental->start_date->format('M d, Y') : 'N/A' }}</td>
                                 <td>{{ $rental->end_date ? $rental->end_date->format('M d, Y') : 'N/A' }}</td>

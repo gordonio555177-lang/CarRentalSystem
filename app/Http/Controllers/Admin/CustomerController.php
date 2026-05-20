@@ -56,14 +56,23 @@ class CustomerController extends Controller
     {
         $validated = $request->validate([
             'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'email' => 'required|email|unique:customers,email,' . $customer->customer_id . ',customer_id',
-            'phone' => 'required|string|max:20',
+            'last_name'  => 'required|string|max:50',
+            'email'      => 'required|email|unique:customers,email,' . $customer->customer_id . ',customer_id',
+            'phone'      => 'required|string|max:20',
             'license_no' => 'required|string|unique:customers,license_no,' . $customer->customer_id . ',customer_id',
-            'address' => 'required|string',
+            'address'    => 'required|string',
         ]);
 
         $customer->update($validated);
+
+        // Keep the linked users table in sync so rentals/dashboard show the updated name
+        if ($customer->user_id) {
+            \App\Models\User::where('id', $customer->user_id)->update([
+                'name'  => trim($validated['first_name'] . ' ' . $validated['last_name']),
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+            ]);
+        }
 
         return redirect()->route('admin.customers.index')
             ->with('success', 'Customer updated successfully!');
