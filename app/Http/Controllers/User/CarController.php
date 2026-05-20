@@ -65,8 +65,11 @@ class CarController extends Controller
             'insurance_ids' => 'nullable|array|exists:insurance,insurance_id',
         ]);
 
+        // Re-check availability with the validated dates
         if (!$car->isAvailable($request->start_date, $request->end_date)) {
-            return back()->with('error', 'Car is not available for the selected dates.');
+            return back()
+                ->withInput()
+                ->with('error', 'This car is already booked for the selected dates. Please choose different dates.');
         }
 
         $startDate = Carbon::parse($request->start_date);

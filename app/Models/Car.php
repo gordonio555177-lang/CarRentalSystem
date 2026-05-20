@@ -60,34 +60,29 @@ class Car extends Model
     // Check if car is available for given dates
     public function isAvailable($startDate, $endDate)
     {
-        // Check if car is in maintenance
-        if ($this->status === 'maintenance') {
+        // Check if car is in maintenance or unavailable
+        if (in_array($this->status, ['maintenance', 'unavailable'])) {
             return false;
         }
 
-        // Check if car is unavailable
-        if ($this->status === 'unavailable') {
+        // Guard: if dates are missing or invalid, treat as available
+        if (!$startDate || !$endDate) {
+            return true;
+        }
+
+        $start = Carbon::parse($startDate)->startOfDay();
+        $end   = Carbon::parse($endDate)->startOfDay();
+
+        if ($end->lte($start)) {
             return false;
         }
 
-        // Parse dates
-        $start = Carbon::parse($startDate);
-        $end = Carbon::parse($endDate);
-
-        // Check for overlapping active or pending rentals
+        // Check for overlapping active or pending rentals only
+        // A rental overlaps if: rental.start < requested.end AND rental.end > requested.start
         $overlappingRental = $this->rentals()
-            ->where(function($query) {
-                $query->where('status', 'active')
-                    ->orWhere('status', 'pending');
-            })
-            ->where(function($query) use ($start, $end) {
-                $query->whereBetween('start_date', [$start, $end])
-                    ->orWhereBetween('end_date', [$start, $end])
-                    ->orWhere(function($q) use ($start, $end) {
-                        $q->where('start_date', '<=', $start)
-                            ->where('end_date', '>=', $end);
-                    });
-            })
+            ->whereIn('status', ['active', 'pending'])
+            ->where('start_date', '<', $end)
+            ->where('end_date', '>', $start)
             ->exists();
 
         return !$overlappingRental;
