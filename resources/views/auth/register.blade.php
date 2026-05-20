@@ -444,7 +444,7 @@
                         <i class="fas fa-user icon-left"></i>
                         <input id="name" type="text" name="name"
                                value="{{ old('name') }}"
-                               placeholder="Juan dela Cruz"
+                               placeholder="Gerude Mead Ordonio"
                                required autofocus autocomplete="name">
                     </div>
                     @error('name')
