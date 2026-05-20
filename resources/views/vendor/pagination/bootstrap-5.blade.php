@@ -1,34 +1,50 @@
 @if ($paginator->hasPages())
-<div class="pagination-wrap">
-    <div class="pagination-info">
-        Showing {{ $paginator->firstItem() ?? 0 }} to {{ $paginator->lastItem() ?? 0 }}
-        of {{ $paginator->total() }} results
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding:.75rem 1.25rem;border-top:1px solid #e2e8f0;margin-top:0;">
+
+    {{-- Info text --}}
+    <div style="font-size:.78rem;color:#64748b;font-weight:500;">
+        Showing <strong>{{ $paginator->firstItem() ?? 0 }}</strong>
+        to <strong>{{ $paginator->lastItem() ?? 0 }}</strong>
+        of <strong>{{ $paginator->total() }}</strong> results
     </div>
-    <ul class="pagination">
+
+    {{-- Page buttons --}}
+    <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+
         {{-- Previous --}}
         @if ($paginator->onFirstPage())
-            <li class="page-item disabled">
-                <span class="page-link"><i class="fas fa-chevron-left" style="font-size:.7rem;"></i></span>
-            </li>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#cbd5e1;font-size:.7rem;cursor:not-allowed;">
+                <i class="fas fa-chevron-left"></i>
+            </span>
         @else
-            <li class="page-item">
-                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">
-                    <i class="fas fa-chevron-left" style="font-size:.7rem;"></i>
-                </a>
-            </li>
+            <a href="{{ $paginator->previousPageUrl() }}" rel="prev"
+               style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;background:#fff;color:#475569;font-size:.7rem;text-decoration:none;transition:all .15s;"
+               onmouseover="this.style.borderColor='#2563eb';this.style.color='#2563eb';"
+               onmouseout="this.style.borderColor='#e2e8f0';this.style.color='#475569';">
+                <i class="fas fa-chevron-left"></i>
+            </a>
         @endif
 
         {{-- Page Numbers --}}
         @foreach ($elements as $element)
             @if (is_string($element))
-                <li class="page-item disabled"><span class="page-link">{{ $element }}</span></li>
+                <span style="display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 6px;border-radius:8px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#94a3b8;font-size:.8rem;font-weight:600;">
+                    {{ $element }}
+                </span>
             @endif
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <li class="page-item active"><span class="page-link">{{ $page }}</span></li>
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 6px;border-radius:8px;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;font-size:.8rem;font-weight:700;border:none;box-shadow:0 2px 8px rgba(37,99,235,.3);">
+                            {{ $page }}
+                        </span>
                     @else
-                        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                        <a href="{{ $url }}"
+                           style="display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 6px;border-radius:8px;border:1.5px solid #e2e8f0;background:#fff;color:#475569;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .15s;"
+                           onmouseover="this.style.borderColor='#2563eb';this.style.color='#2563eb';this.style.background='#eff6ff';"
+                           onmouseout="this.style.borderColor='#e2e8f0';this.style.color='#475569';this.style.background='#fff';">
+                            {{ $page }}
+                        </a>
                     @endif
                 @endforeach
             @endif
@@ -36,16 +52,18 @@
 
         {{-- Next --}}
         @if ($paginator->hasMorePages())
-            <li class="page-item">
-                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">
-                    <i class="fas fa-chevron-right" style="font-size:.7rem;"></i>
-                </a>
-            </li>
+            <a href="{{ $paginator->nextPageUrl() }}" rel="next"
+               style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;background:#fff;color:#475569;font-size:.7rem;text-decoration:none;transition:all .15s;"
+               onmouseover="this.style.borderColor='#2563eb';this.style.color='#2563eb';"
+               onmouseout="this.style.borderColor='#e2e8f0';this.style.color='#475569';">
+                <i class="fas fa-chevron-right"></i>
+            </a>
         @else
-            <li class="page-item disabled">
-                <span class="page-link"><i class="fas fa-chevron-right" style="font-size:.7rem;"></i></span>
-            </li>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#cbd5e1;font-size:.7rem;cursor:not-allowed;">
+                <i class="fas fa-chevron-right"></i>
+            </span>
         @endif
-    </ul>
+
+    </div>
 </div>
 @endif
