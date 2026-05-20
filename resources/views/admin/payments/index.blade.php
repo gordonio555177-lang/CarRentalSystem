@@ -30,7 +30,7 @@
                     <tr>
                         <td>{{ $payment->payment_id }}</td>
                         <td>#{{ $payment->rental_id }}</td>
-                        <td>{{ $payment->rental->customer->name ?? ($payment->rental->customer->customer->full_name ?? 'N/A') }}</td>
+                        <td>{{ $payment->rental->customer->customer->full_name ?? $payment->rental->customer->name ?? 'N/A' }}</td>
                         <td>₱{{ number_format($payment->amount, 2) }}</td>
                         <td>{{ $payment->payment_date->format('M d, Y') }}</td>
                         <td>{{ ucfirst($payment->method) }}</td>

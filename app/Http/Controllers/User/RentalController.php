@@ -14,10 +14,13 @@ class RentalController extends Controller
      */
     public function index()
     {
-        $rentals = Rental::where('customer_id', auth()->id())
-            ->with('car')
-            ->latest()
-            ->paginate(10);
+        $query = Rental::where('customer_id', auth()->id())->with('car');
+
+        if (request()->filled('status') && request('status') !== 'all') {
+            $query->where('status', request('status'));
+        }
+
+        $rentals = $query->latest()->paginate(10);
 
         return view('user.rentals.index', compact('rentals'));
     }

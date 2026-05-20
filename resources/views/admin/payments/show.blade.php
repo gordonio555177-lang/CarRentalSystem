@@ -28,15 +28,15 @@
                         <table class="table table-borderless table-sm mb-0">
                             <tr>
                                 <th width="40%">Name</th>
-                                <td>{{ $user->name ?? ($profile->full_name ?? 'N/A') }}</td>
+                                <td>{{ $profile->full_name ?? $user->name ?? 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <th>Email</th>
-                                <td>{{ $user->email ?? ($profile->email ?? 'N/A') }}</td>
+                                <td>{{ $profile->email ?? $user->email ?? 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <th>Phone</th>
-                                <td>{{ $user->phone ?? ($profile->phone ?? 'N/A') }}</td>
+                                <td>{{ $profile->phone ?? $user->phone ?? 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <th>License No</th>
